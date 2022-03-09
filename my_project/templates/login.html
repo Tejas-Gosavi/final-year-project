@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <link rel="stylesheet" href="../static/login.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Log In</title>
+</head>
+
+<body>
+    <div class="overlay">
+        <form action="/login" method="post">
+            <div class="con">
+                <header class="head-form">
+                    <h2>LOGIN</h2>
+                    {% if error == False %}
+                        <h3>{{ error_text }}</h3>
+                    {% elif error == True %}
+                        <h3>{{ error_text }}</h3>
+                    {% endif %}
+                </header>
+                <br>
+                <div class="field-set">
+                    <span class="input-item">
+                        <i class="fa fa-user-circle"></i>
+                    </span>
+                    <input class="form-input" id="txt-input" type="email" placeholder="@Username" name="email" required>
+                    <br>
+                    <span class="input-item">
+                        <i class="fa fa-key"></i>
+                    </span>
+                    <input class="form-input" id="pwd" type="password" placeholder="Password" name="pwd" required>
+                    <span>
+                        <i class="fa fa-eye" aria-hidden="true" type="button" id="eye"></i>
+                    </span>
+                    <br>
+                    <button class="log-in" id="logbtn"> Log In </button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <script>
+        function show() {
+            var p = document.getElementById('pwd');
+            p.setAttribute('type', 'text');
+        }
+        
+        function hide() {
+            var p = document.getElementById('pwd');
+            p.setAttribute('type', 'password');
+        }
+        
+        var pwShown = 0;
+        
+        document.getElementById("eye").addEventListener("click", function() {
+            if (pwShown == 0) {
+                pwShown = 1;
+                show();
+            } else {
+                pwShown = 0;
+                hide();
+            }
+        }, false);
+    </script>
+</body>
+
+</html>

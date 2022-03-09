@@ -1,0 +1,16 @@
+<nav class="navbar navbar-dark bg-dark">
+    <div class="container-fluid justify-content-sm-between justify-content-center">
+        <a class="navbar-brand" href="{{ url_for('index') }}">Bus Crowding Level</a>
+        <div class="d-flex gap-3">
+
+            {% if loggedin %}
+                <h5 class="text-light m-auto">{{ user }}</h5>
+                <a href="{{ url_for('logout') }}" class="btn navbar-button text-light" type="button">Log out</a>
+            {% else %}
+                <a href="{{ url_for('login') }}" class="btn navbar-button text-light" type="button">Log In</a>
+                <a href="{{ url_for('signup') }}" class="btn navbar-button text-light" type="button">Sign In</a>
+            {% endif %}
+
+        </div>
+    </div>
+</nav>

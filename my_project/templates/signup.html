@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <link rel="stylesheet" href="../static/signup.css">
+    <title>Sign Up</title>
+</head>
+
+<body>
+    <div class="overlay">
+        <form action="/signup" method="post">
+            <div class="con">
+                <header class="head-form">
+                    <h2>SIGNUP</h2>
+                    {% if error == False %}
+                        <h3>{{ error_text }}</h3>
+                    {% elif error == True %}
+                        <h3>{{ error_text }}</h3>
+                    {% endif %}
+                </header>
+                <br>
+                <div class="field-set">
+                    <span class="input-item">
+                        <i class="fas fa-user"></i>
+                    </span>
+                    <input class="form-input" id="txt-input" type="text" placeholder="Name" name="name" required>
+                    <br>
+
+                    <span class="input-item">
+                        <i class="fas fa-phone-square-alt"></i>
+                    </span>
+                    <input class="form-input" id="txt-input" type="tel" placeholder="Contact Number" name="contact_no" required>
+                    <br>
+
+                    <span class="input-item">
+                        <i class="fas fa-envelope"></i>
+                    </span>
+                    <input class="form-input" id="txt-input" type="email" placeholder="Email" name="email" required>
+                    <br>
+
+                    <span class="input-item">
+                        <i class="fa fa-key"></i>
+                    </span>
+                    <input class="form-input" type="password" placeholder="Password" id="pwd" name="pwd" required>
+                    <span>
+                        <i class="fa fa-eye" aria-hidden="true" type="button" id="eye"></i>
+                    </span>
+                    <br>
+                    <button class="signup"> Sign Up </button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <script>
+        function show() {
+            var p = document.getElementById('pwd');
+            p.setAttribute('type', 'text');
+        }
+        
+        function hide() {
+            var p = document.getElementById('pwd');
+            p.setAttribute('type', 'password');
+        }
+        
+        var pwShown = 0;
+        
+        document.getElementById("eye").addEventListener("click", function() {
+            if (pwShown == 0) {
+                pwShown = 1;
+                show();
+            } else {
+                pwShown = 0;
+                hide();
+            }
+        }, false);
+    </script>
+</body>
+
+</html>

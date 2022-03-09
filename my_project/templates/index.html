@@ -1,0 +1,39 @@
+{% extends 'layout.html' %}
+
+{% block title %}Bus Crowding prediction model{% endblock title %}
+
+{% block content %}
+<div class="container">
+	<div class="row g-3 justify-content-center">
+		<div class="col-lg-3 col-md-3 col-11">
+			<input class="w-100 p-3" list="srcs" name="src" id="src" placeholder="Source">
+			<datalist id="srcs">
+				<option value="College Road">
+				<option value="Gangapur Road">
+				<option value="CBS">
+				<option value="Makhamalabad">
+				<option value="Satpur">
+			</datalist>
+		</div>
+		<div class="col-lg-3 col-md-3 col-11">
+			<input class="w-100 p-3" list="dests" name="dest" id="dest" placeholder="Destination">
+			<datalist id="dests">
+				<option value="College Road">
+				<option value="Gangapur Road">
+				<option value="CBS">
+				<option value="Makhamalabad">
+				<option value="Satpur">
+			</datalist>
+		</div>
+
+		<div class="col-lg-2 col-md-2 col-11">
+			<input type="time" class="time w-100 p-3" name="time" min="1" max="24" placeholder="Time">
+		</div>
+
+		<div class="col-lg-2 col-md-3 col-11">
+			<button class="button search-button w-100 p-3">Search Bus</button>
+		</div>
+
+	</div>
+</div>
+{% endblock content %}
